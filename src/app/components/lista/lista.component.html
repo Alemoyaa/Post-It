@@ -1,0 +1,29 @@
+<div class="alert alert-warning" role="alert" *ngFor="let item of items" id="listaItems">
+
+    {{item.name}} - {{item.id}}
+
+    <button type="button" class="btn btn-link btn-sm" (click)="eliminar(item.id)">
+      <i class="far fa-minus-square"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-sm" (click)="vistaActOpen(item)">
+        <i class="far fa-edit"></i>
+    </button>
+
+</div>
+
+<div id="modal">
+    <button type="button" class="btn btn-link btn-lg" (click)="vistaActClose()">
+      <i class="far fa-times-circle"></i>
+    </button>
+
+    <form class="col-md-6">
+
+      <input type="text" minlength="1"  name="name" placeholder="Edita la antigua nota: " class="form-control" ([ngModel])="itemEditar.name">
+      <button class="btn btn-outline-warning mt-3" type="submit" > Agregar </button>
+      <button class="btn btn-outline-warning mt-3" type="submit" (click)="vistaActClose()"> Close </button>
+    </form>
+</div>
+
+
+

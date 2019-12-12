@@ -1,0 +1,30 @@
+.btn-link{
+  color: red;
+}
+
+
+body {
+  margin:0px;
+  font:normal normal 24px/24px sans-serif;
+}
+#modal {
+  top:0px;
+  left:0px;
+  height:0%;
+  width:100%;
+  position:fixed;
+  overflow:hidden;
+  background:#000000;
+  text-decoration:none;
+  color:#FFFFFF;
+  z-index:4;
+  opacity:0.8;
+  -moz-opacity:0.8;
+  -khtml-opacity:0.8;
+  filter:alpha(opacity=80);
+  -webkit-transition:all 0.4s;
+  -moz-transition:all 0.4s;
+  -ms-transition:all 0.4s;
+  -o-transition:all 0.4s;
+  transition:all 0.4s;
+}
