@@ -11,6 +11,10 @@ export interface Item { id: string; name: string; }
 export class ConexionService {
   private itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
+  itemActualizado: Item = {
+    id: '',
+    name: ''
+  };
 
   constructor(private afs: AngularFirestore) {
     this.itemsCollection = afs.collection<Item>('items');
@@ -41,8 +45,11 @@ export class ConexionService {
     .catch( (err) => console.log('Error eliminando documento:', err));
   }
 
-  updateItem(id: string, nuevoItem: Item){
-    this.itemsCollection.doc(id).set(nuevoItem)
+  updateItem(id: string, nuevoItem: string){
+    this.itemActualizado.id = id;
+    this.itemActualizado.name = nuevoItem;
+    console.log(this.itemActualizado);
+    this.itemsCollection.doc(id).set(this.itemActualizado)
     .then( () => console.log('Documento editado correctamente!'))
     .catch( (err) => console.log('Error editado documento:', err));
   }

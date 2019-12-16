@@ -1,7 +1,14 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Post-IT</h1>
+    <hr>
+    <p class="lead">Agrega notas, las cuáles serán almacenadas gracias a Firebase</p>
+  </div>
+</div>
 <form (ngSubmit)="agregar()">
-    <input type="text" minlength="1" placeholder="Ingresa tu nombre: "
+    <input type="text" minlength="1" placeholder="Ingresa una nota: "
     name="name" class="form-control"
     [(ngModel)]="item.name"
-    >
+     required>
     <button class="btn btn-outline-warning mt-3" type="submit">Agregar</button>
 </form>

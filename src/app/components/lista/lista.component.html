@@ -1,16 +1,17 @@
 <div class="alert alert-warning" role="alert" *ngFor="let item of items" id="listaItems">
 
-    {{item.name}} - {{item.id}}
+    {{item.name}}
 
-    <button type="button" class="btn btn-link btn-sm" (click)="eliminar(item.id)">
-      <i class="far fa-minus-square"></i>
+    <button type="button" class="btn btn-link btn-sm float-right" (click)="eliminar(item.id)">
+      <p class="far fa-minus-square "></p>
     </button>
 
-    <button type="button" class="btn btn-link btn-sm" (click)="vistaActOpen(item)">
-        <i class="far fa-edit"></i>
+    <button type="button" class="btn btn-link btn-sm float-right" (click)="vistaActOpen(item)">
+        <p class="far fa-edit "></p>
     </button>
 
 </div>
+
 
 <div id="modal">
     <button type="button" class="btn btn-link btn-lg" (click)="vistaActClose()">
@@ -18,12 +19,10 @@
     </button>
 
     <form class="col-md-6">
-
-      <input type="text" minlength="1"  name="name" placeholder="Edita la antigua nota: " class="form-control" ([ngModel])="itemEditar.name">
-      <button class="btn btn-outline-warning mt-3" type="submit" > Agregar </button>
-      <button class="btn btn-outline-warning mt-3" type="submit" (click)="vistaActClose()"> Close </button>
+      <input type="text"  class="form-control" name="inputName" placeholder="Edita la antigua nota: " >
+      <button class="btn btn-outline-warning mt-3" type="submit" (click)="actualizar(); vistaActClose()"> Agregar </button>
+      <button class="btn btn-outline-warning mt-3 ml-2" type="submit" (click)="vistaActClose()"> Cerrar </button>
     </form>
 </div>
-
 
 

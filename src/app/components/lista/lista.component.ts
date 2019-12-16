@@ -10,6 +10,7 @@ export class ListaComponent implements OnInit {
 
   items:any;
   itemEditar: Item;
+
   constructor(private conexion: ConexionService) {
     this.conexion.listaItem().subscribe((data) => {
       this.items = data;
@@ -26,7 +27,7 @@ export class ListaComponent implements OnInit {
   }
 
   vistaActClose() {
-    document.getElementById("modal").style.height="0%";//cerrar Ventana de ingreso de edicion
+    document.getElementById("modal").style.height="0%";//Cerrar ventana de ingreso de edicion
 
   }
 
@@ -36,8 +37,9 @@ export class ListaComponent implements OnInit {
     document.getElementById("modal").style.height="100%";//Ventana de ingreso de edicion
   }
 
-  /*
-  actualizar(id: string, item: Item){
-    this.conexion.updateItem(id,item);
-  }*/
+
+  actualizar(){
+    this.itemEditar.name = (document.getElementsByName('inputName')[0] as HTMLInputElement).value;
+    this.conexion.updateItem(this.itemEditar.id,this.itemEditar.name);
+  }
 }
