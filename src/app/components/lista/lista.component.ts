@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConexionService, Item } from 'src/app/services/conexion.service';
 
 @Component({
