@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ConexionService, Item } from 'src/app/services/conexion.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ConexionService, Item } from "src/app/services/conexion.service";
 
 @Component({
-  selector: 'app-lista',
-  templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  selector: "app-lista",
+  templateUrl: "./lista.component.html",
+  styleUrls: ["./lista.component.css"],
 })
 export class ListaComponent implements OnInit {
+  items: any;
 
-  items:any;
   itemEditar: Item;
 
   constructor(private conexion: ConexionService) {
@@ -17,29 +17,27 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-
-  eliminar(idItem: string){
+  eliminar(idItem: string) {
     console.log(idItem);
     this.conexion.deleteItem(idItem);
   }
 
   vistaActClose() {
-    document.getElementById("modal").style.height="0%";//Cerrar ventana de ingreso de edicion
-
+    document.getElementById("modal").style.height = "0%"; //Cerrar ventana de ingreso de edicion
   }
 
-  vistaActOpen(item: Item){
+  vistaActOpen(item: Item) {
     this.itemEditar = item;
-    console.log(this.itemEditar.id,this.itemEditar.name)
-    document.getElementById("modal").style.height="100%";//Ventana de ingreso de edicion
+    console.log(this.itemEditar.id, this.itemEditar.name);
+    document.getElementById("modal").style.height = "100%"; //Ventana de ingreso de edicion
   }
 
-
-  actualizar(){
-    this.itemEditar.name = (document.getElementsByName('inputName')[0] as HTMLInputElement).value;
-    this.conexion.updateItem(this.itemEditar.id,this.itemEditar.name);
+  actualizar() {
+    this.itemEditar.name = (document.getElementsByName(
+      "inputName"
+    )[0] as HTMLInputElement).value;
+    this.conexion.updateItem(this.itemEditar.id, this.itemEditar.name);
   }
 }
